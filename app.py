@@ -1,10 +1,10 @@
 import streamlit as st
-import pandas as pd
 import numpy as np
 from prediction import predict
 
 st.title('Classifying Iris Flowers')
-st.markdown('Toy model to classify iris flowers into (setosa, versicolor, virginica) based on their sepal/petal length/width.')
+st.markdown('Toy model to classify iris flowers \
+(setosa, versicolor, virginica) based on sepal and petal dimensions.')
 
 st.header("Plant Features")
 col1, col2 = st.columns(2)
@@ -20,6 +20,7 @@ with col2:
     petal_w = st.slider('Petal width (cm)', 0.1, 2.5, 1.0)
 
 st.text('')
+
 if st.button("Predict type of Iris"):
     result = predict(np.array([[sepal_l, sepal_w, petal_l, petal_w]]))
-    st.text(f"Prediction Result: {result[0]}")
+    st.success(f'Hasil Prediksi: {result[0]}')
