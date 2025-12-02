@@ -1,5 +1,8 @@
 import joblib
+import numpy as np
+
+model = joblib.load("random_forest_model.joblib")
 
 def predict(data):
-clf = joblib.load("rf_model.sav")
-return clf.predict(data)s
+    result = model.predict(data)
+    return result
